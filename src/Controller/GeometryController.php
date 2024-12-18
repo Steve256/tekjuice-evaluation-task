@@ -18,7 +18,7 @@ class GeometryController extends AbstractController
         $this->geometryCalculator = $geometryCalculator;
     }
     
-    // Function to
+    // Function to initialise circle object
     #[Route('geometry/circle/{radius}')]
     public function circleDetails(float $radius): JsonResponse
     {
@@ -27,6 +27,7 @@ class GeometryController extends AbstractController
         return new JsonResponse($details);
     }
 
+    // Function to initialise triangle object
     #[Route('/geometry/triangle/{a}/{b}/{c}')]
     public function triangleDetails(float $a, float $b, float $c): JsonResponse
     {
@@ -34,7 +35,8 @@ class GeometryController extends AbstractController
         $details = $this->geometryCalculator->calculateTriangleDetails($triangle);
         return new JsonResponse($details);
     }
-    
+
+    // Function to sum up areas of the objects
     #[Route('geometry/sum-areas/{radius}/{a}/{b}/{c}')]
     public function sumAreas(float $radius, float $a, float $b, float $c): JsonResponse
     {
@@ -48,6 +50,7 @@ class GeometryController extends AbstractController
         ]);
     }
     
+    // Function to sum up diameters of the objects
     #[Route('geometry/sum-diameters/{radius}/{a}/{b}/{c}')]
     public function sumDiameters(float $radius, float $a, float $b, float $c): JsonResponse
     {

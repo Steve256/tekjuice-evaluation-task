@@ -15,18 +15,20 @@ class Triangle
         $this->c = $c;
     }
 
+    // function to calculate surface area
     public function calculateSurface(): float
     {
         $s = ($this->a + $this->b + $this->c) / 2;
         return sqrt($s * ($s - $this->a) * ($s - $this->b) * ($s - $this->c));
     }
 
+    //function to calculate diameter
     public function calculateDiameter(): float
     {
         return $this->a + $this->b + $this->c;
     }
 
-    // Getters
+    // Getter method to get all sides
     public function getSides(): array
     {
         return [$this->a, $this->b, $this->c];
